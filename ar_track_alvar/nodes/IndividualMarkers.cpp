@@ -44,6 +44,7 @@
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/create_timer_ros.h"
 #include "tf2_ros/transform_listener.h"
+#include <rclcpp/duration.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
@@ -56,7 +57,7 @@
 
 using namespace alvar;
 using namespace std;
-using boost::make_shared;
+// using boost::make_shared;
 namespace gm=geometry_msgs;
 namespace ata=ar_track_alvar;
 typedef pcl::PointXYZRGB ARPoint;
@@ -235,7 +236,7 @@ class IndividualMarkers : public rclcpp::Node
         rvizMarker.points.push_back(p);
       }
 
-      rvizMarker.lifetime = rclcpp::Duration (1.0);
+      rvizMarker.lifetime = rclcpp::Duration(1, 0);
       rvizMarkerPub2_->publish (rvizMarker);
     }
 
@@ -265,7 +266,7 @@ class IndividualMarkers : public rclcpp::Node
           end.z = start.z + mat[2][i];
           rvizMarker.points.push_back(end);
           rvizMarker.id += 10*i;
-          rvizMarker.lifetime = rclcpp::Duration (1.0);
+          rvizMarker.lifetime = rclcpp::Duration (1, 0);
 
           if(color==1){
             rvizMarker.color.r = 1.0f;
@@ -596,7 +597,7 @@ class IndividualMarkers : public rclcpp::Node
                 break;
             }
         
-          rvizMarker_.lifetime = rclcpp::Duration (1.0);
+          rvizMarker_.lifetime = rclcpp::Duration (1, 0);
           rvizMarkerPub_->publish (rvizMarker_);
 
           //Get the pose of the tag in the camera frame, then the output frame (usually torso)

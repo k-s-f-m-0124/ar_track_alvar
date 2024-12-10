@@ -10,9 +10,9 @@ you need to source both the ros1 underlay and the ros2 underlay in your ~/.bashr
 source /opt/ros/noetic/setup.bash
 
 # ROS2
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 source /usr/share/colcon_cd/function/colcon_cd.sh 
-export _colcon_cd_root=/opt/ros/foxy
+export _colcon_cd_root=/opt/ros/humble
 
 ```
 

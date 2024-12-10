@@ -42,7 +42,7 @@
 #include <image_transport/image_transport.hpp>
 #include <sensor_msgs/msg/camera_info.hpp>
 #include <visualization_msgs/msg/marker.hpp>
-#include <resource_retriever/retriever.h>
+#include <resource_retriever/retriever.hpp>
 
 namespace alvar
 {

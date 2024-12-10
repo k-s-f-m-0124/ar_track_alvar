@@ -309,7 +309,7 @@ class FindMarkerBundlesNoKinect : public rclcpp::Node
       rvizMarker->color.a = 0.5;
     }
 
-    rvizMarker->lifetime = rclcpp::Duration (1.0);
+    rvizMarker->lifetime = rclcpp::Duration (1, 0);
 
     // Only publish the pose of the master tag in each bundle, since that's all we really care about aside from visualization 
     if(type==MAIN_MARKER){

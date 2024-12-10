@@ -185,7 +185,7 @@ class IndividualMarkersNoKinect : public rclcpp::Node
     //void getCapCallback(const sensor_msgs::msg::Image::ConstSharedPtr& image_msg)
     {
         std::string tf_error;
-        
+
         //If we've already gotten the cam info, then go ahead
         if(cam->getCamInfo_ && parameters_set){
 		    try
@@ -330,7 +330,7 @@ class IndividualMarkersNoKinect : public rclcpp::Node
                 rvizMarker_.color.a = 1.0;
                 break;
             }
-            rvizMarker_.lifetime = rclcpp::Duration (1.0);
+            rvizMarker_.lifetime = rclcpp::Duration (1, 0);
             rvizMarkerPub_->publish (rvizMarker_);
 
             //Create the pose marker messages

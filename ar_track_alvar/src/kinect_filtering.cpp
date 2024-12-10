@@ -33,6 +33,7 @@
 #include <Eigen/Core>
 #include <ar_track_alvar/filter/kinect_filtering.h>
 // #include <tf2/tf.h>
+#include <memory>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/transform_datatypes.h>
 
@@ -53,7 +54,7 @@ const double distance_threshold_ = 0.005;
 PlaneFitResult fitPlane(ARCloud::ConstPtr cloud)
 {
   PlaneFitResult res;
-  pcl::PointIndices::Ptr inliers = boost::make_shared<pcl::PointIndices>();
+  pcl::PointIndices::Ptr inliers = std::make_shared<pcl::PointIndices>();
 
   pcl::SACSegmentation<ARPoint> seg;
   seg.setOptimizeCoefficients(true);

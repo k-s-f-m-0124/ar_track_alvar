@@ -9,3 +9,4 @@
 *~
 src/ar_track_alvar
 *.user
+.vscode

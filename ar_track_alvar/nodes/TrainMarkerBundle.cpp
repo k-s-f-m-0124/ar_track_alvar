@@ -407,7 +407,7 @@ class TrainMarkerBundle : public rclcpp::Node
 				rvizMarker->color.a = 0.5;
 			}
 
-			rvizMarker->lifetime = rclcpp::Duration (1.0);
+			rvizMarker->lifetime = rclcpp::Duration (1, 0);
 
 
 			//Create the pose marker messages

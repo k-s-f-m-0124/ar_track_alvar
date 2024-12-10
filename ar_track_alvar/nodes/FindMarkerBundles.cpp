@@ -84,7 +84,7 @@ typedef pcl::PointCloud<ARPoint> ARCloud;
 
 using namespace alvar;
 using namespace std;
-using boost::make_shared;
+// using boost::make_shared;
 
 class FindMarkerBundles : public rclcpp::Node
 {
@@ -290,7 +290,7 @@ class FindMarkerBundles : public rclcpp::Node
         rvizMarker.points.push_back(p);
       }
       
-      rvizMarker.lifetime = rclcpp::Duration (1.0);
+      rvizMarker.lifetime = rclcpp::Duration(1, 0);
       rvizMarkerPub2_->publish (rvizMarker);
     }
 
@@ -320,7 +320,7 @@ class FindMarkerBundles : public rclcpp::Node
         end.z = start.z + mat[2][i];
         rvizMarker.points.push_back(end);
         rvizMarker.id += 10*i;
-        rvizMarker.lifetime = rclcpp::Duration (1.0);
+        rvizMarker.lifetime = rclcpp::Duration(1, 0);
 
         if(color==1){
           rvizMarker.color.r = 1.0f;
@@ -400,9 +400,9 @@ class FindMarkerBundles : public rclcpp::Node
           			  pt_transform = tf2_->lookupTransform(cloud.header.frame_id, marker_frame,tf2_time,tf2_time - prev_stamp2_);	
 
 
-                  // tf2_.canTransform(cloud.header.frame_id, marker_frame, rclcpp::Time(0), rclcpp::Duration(0.1));
+                  // tf2_.canTransform(cloud.header.frame_id, marker_frame, rclcpp::Time(0), rclcpp::Duration(0, 0.1 * 1e9));
                   // geometry_msgs::msg::TransformStamped pt_transform; 
-                  // pt_transform = tf2_.lookupTransform(cloud.header.frame_id, marker_frame, rclcpp::Time(0), rclcpp::Duration(0.1));
+                  // pt_transform = tf2_.lookupTransform(cloud.header.frame_id, marker_frame, rclcpp::Time(0), rclcpp::Duration(0, 0.1 * 1e9));
                   tf2::doTransform(p, output_p,pt_transform);			
               }
               catch (tf2::TransformException ex){
@@ -715,7 +715,7 @@ class FindMarkerBundles : public rclcpp::Node
       rvizMarker->color.a = 0.5;
     }
 
-    rvizMarker->lifetime = rclcpp::Duration (0.1);
+    rvizMarker->lifetime = rclcpp::Duration(0, 0.1 * 1e9);
 
     // Only publish the pose of the master tag in each bundle, since that's all we really care about aside from visualization 
     if(type==MAIN_MARKER){
